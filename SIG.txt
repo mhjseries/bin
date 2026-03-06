@@ -1,0 +1,863 @@
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical 1(a,b,c)
+(1a) To create a Polygon Layer.
+
+1) Go to
+Layer → New Shape file layer
+
+2) Fill the Data
+File name : Ghatkopar.shp
+Geometric type: Polygon
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+3) Now Press the
+The data will come down
+4) Press Ok
+5) The Ghatkopar Layer will be created on the Desktop.
+
+6) Now press Toggle Editing Button and Add Polygon
+
+make the polygon layer.
+
+and
+
+On Right Cliking layer formation wil
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+l stop, put’ id as 1’ and name as Ghatkopar.
+
+7 ) Now, Go to Layer, Layer Properties.
+We can change colour, press Apply , Ok
+
+Now, we will make another Layer ‘ Upvan’ by following the previous steps.
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Similarly go to layer , layer properties and do the colour selection.
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+1b)
+
+Roll.no 23-173
+
+Creating Line Vector Layer.
+
+Similarly create the line layer.
+
+Click on
+
+Toggle Editing and Add line feature.
+
+and
+
+Set the properties of line by going to Layer and Layer Properties.
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Features :
+a) To Label layer click layer → Layer Labelling.
+b) To add Symbols go to Layer →Layers Properties → Symbology → Advanced ( At the
+End) → Enable Symbology levels.
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+1 c ) To add point features.
+Repeat the same steps to add point features.
+School , Hospital etc.
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Pratical no 1 (D)
+Calculating line lengths and statistics
+Step 1. Go to layer
+
+Step 2. Now go to Add layer and click add vector layer
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 3. Now we add in vector layer file is
+IND_adm0.shp
+
+Step 4. Again go to layer and click on add layer then
+click on add vector layer..
+
+Step 5. Now add file in vector layer and file name is
+IND_rails.shp
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 6. Go to layer and select open Attribute table
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 7. Now select last 4 icon we have click on icon
+name is Open field calculator
+
+Step 8. Go to output field name and fill the name
+Track_leng
+And now same as Go to output field type select 1.2
+Decimal number(real)
+And now precision value is 2
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 9. Go to blank space and type $length/1000
+
+Step 10. Go to vector and click Analyses tool then click
+on Basic statistics for fields..
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 11. Final step press the run button
+
+And then we get OUTPUT
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical no.2(a)
+Adding raster layers
+
+Step 1. Go to layer and select add layer then select add
+Raster layer..
+
+Step 2. Go to dataset and select file glds90ag60.asc
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 3. Again go to dataset and select file name
+glds00ag60.asc
+
+Step 4. Go to glds90ag60 and click then go to
+properties
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 5. Now click on Singleband pseudocolor
+
+Step 6. Now value max 240 and now click on classify ,
+then click Apply or Ok
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 7. Now same as glds90ag60 We do same steps in
+glds00ag60..
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 8. Now go to raster and select Raster calculator
+and output layer name fill population difference and
+subtract glds00ag60@1-glds90ag60@1 and click ok .
+
+Step 9. Now Right click population difference and
+select properties.
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 10. Now fill all data according to given picture and
+at the end click Apply or select ok..
+
+Now output is…
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical no.2 (c)
+Raster Mosaicking and Clipping
+Step 1. Go to layer and click on add layer then select
+Add Raster layer..
+
+Step 2. Now select files one by one where show at the
+end tif.aux
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 3. Go to Raster and click miscellanenous then
+select Merge
+
+Step 4. When click on Merge button then so this of
+interface Here select all and click run
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 5. Select only Merged
+
+Step 5. Go to layer and Add layer then select Add
+vector layer
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 7. Select file IND_adm0.shp
+
+Step 8.When click on propertie then select outline blue
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 9. Go to raster and selected Extraction and then
+click on clip Raster by mask layer..
+
+Step 10. Now input layer we select according to given
+picture..
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+And then output is …
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical No.3
+Making a Map
+Step 1. Go to layer add layer then click on add vector
+layer
+
+Step 2. Go to file and select file IND_adm1.shp
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 3. Again go to same step and select
+Maharashtra_administrative.shp
+
+Step.4 follow same step and select
+Maharashtra_costline.shp
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 5. Follow the same step and select
+Maharashtra_highway.shp
+
+Step 6. Now select Maharashtra_location.shp
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 7. Select Maharashtra_natural.shp
+
+Step 8. Select Maharashtra_poi.shp
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 9. Select Maharashtra_water.shp
+
+Step 10. Right click on IND_adm1 then select
+properties and then select outline green then apply
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 11. Now select Maharashtra.pol and then select
+properties , then chose red color then click apply
+
+Step 12. Click on project and then click new print layout
+or add name of layout
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 13. Select add item then click on add map
+
+Step 14. Select lock layers and lock style for layer
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 15. Change the Label text To “Mumbai Map”, Set
+appropriate font size and color using Item Properties→
+Main Properties.
+
+Step 16. Add Item → Add Legend→ Place the legend
+indicator at appropriate location.Uncheck auto update
+and use suitable legend indicator label.
+
+Step 17. Print Layout will appear
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 18. A Map can be saved in Image or PDF using
+Layout → Export as Image / Export as PDF
+
+Then output is…
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical 4.(A)
+Working with attributes.
+Step 1. Go to layer select add layer then select add
+vector layer..
+
+Step 2. Select the file .shp
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 3. Right click on populated places simple then click
+on open attribute table
+
+Step 4. Then select pop_max and then click on 10
+number icon
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 5. Write pop_max>100 and pop_max<1000 and
+then click on feature and then close.
+
+Then Output ….
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical 4.(B)
+Terrain data hill shade analysis
+Step.1 Go layer select add layer then select add raster
+layer.
+
+Step 2. Then select image
+10n060_20101117_gmted_mea300
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 3. Now click on raster then select Extraction and
+click on clip raster by Extent
+
+Step 4. Now select use current map canvas extent and
+near clipped 3 dot click on and select save to file and
+file name is clippedhimalaya and then click on run
+button
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 5. Now click on raster and then select Extraction
+and now click on contour
+
+Step 6. Here change the value interval between
+contour lines value is 100.00000 and then contour save
+to file name is contourhimalaya and then click on run
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 7. Right click on contourhimalaya and then select
+properties
+
+Step 8. Select value is 1.2 ELEV then select color as you
+wish then click on apply
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 9. Click on raster then select analysis then select
+Hillshade.
+
+Step 10. Here select clipped Himalaya and then
+Hillshade file save as Hillshade name then click on run
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Then output is ..
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical no. 5
+Working with projections and WMS Data
+STEP 1. Go to add layer and select add vector layer.
+
+Step 2. Now select ne_10m_admin_0_countries.shp
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 3. Now go to layer and select save as
+
+Step 4. Now save the file and file name is MAP1
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 5. Now go to layer and select add layer then add
+vector layer.. and select the file
+MiniScale_(standered)_R17
+
+Step 6. Go project select properties
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 7. Then select file
+
+Then OUTPUT is….
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical 6
+Georeferencing Topo sheets and scanned Maps
+Step 1. Go to layer and click on add layer then select
+add vector layer.
+
+Step 2. Select file IND_adm0.shp
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 3. Go to layer and select georeferencer.
+
+Step 4. Go to file and click open raster
+
+Step 5. Select file Bombay_1909
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 6 Click on add GCP point or then select area near
+Mumbai and click on from map canvas
+
+Step 7. Click on setting then select transformation
+settings
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Step 8. Then transformation type select linear then
+press ok
+
+Step 9. Click on file then select start georeferencing
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Then output is
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Practical 7
+Managing data tables and spatial data set (Table join)
+(a)Table Joints
+A table joint is a method used to combine data from two
+separate tables based on common field.
+This allows us to enrish spatial data with additional information
+from Non-Spatial tables
+
+1) Add the ZIP file “ A-260224T135248Z-3-001”
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+2) To add ‘CSV’ ( Comma Separate Value) file.
+Add layer – Add Delimiter Text Layer
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Add, ‘ ca_tracts_pop’
+Geometry Definition – (click) No Geometry
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Press, ADD, close
+
+Right click on shape file ‘
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Look at
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Click on , + symbol
+
+Make the following changes:
+Join field- GEO id2 , Target field - GEOID
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+After pressing Apply , OK
+
+Now, Joining is over.
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+We will once again go to shape file by Right clicking on it.
+
+Symbology,
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+, Value – Graduated , Mode – Equal Interval
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Press , Apply – OK
+
+The light colour represents, low population and Dark colour represent High population.
+
+Ritesh kumawat
+
+23-173
+
+Ritesh kumawat
+
+Roll.no 23-173
+
+Ritesh kumawat
+
+23-173
+
+

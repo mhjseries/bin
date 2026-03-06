@@ -1,0 +1,1771 @@
+Index
+
+Sr.No
+
+Title
+
+1.
+
+Introduction To Android
+
+2.
+
+Programming Resources
+
+3.
+
+Programming Activities
+
+4.
+
+Programs Related To Different Layouts
+
+5.
+
+Programming UI elements AppBar,
+Fragments, UI Components in android
+
+6.
+
+Programming menus, dialog, dialog
+fragments
+
+7.
+
+Programs on Intents, Events, Listeners
+and Adapters
+
+8.
+
+Programs on Services, notification and
+broadcast receivers
+
+9.
+
+Database Programming with SQLite
+
+Date
+
+Sign
+
+Android Practical
+
+PRACTICAL 1
+AIM: Introduction to Android
+Definition:
+Android is an open-source mobile operating system based on Linux,
+developed by Google.
+Features:
+1.
+Open-source
+2.
+Customizable UI
+3.
+Wide device compatibility
+4.
+Large app ecosystem (Google Play Store)
+
+Introduction to Android Studio IDE:
+Android Studio is the official Integrated Development Environment (IDE)
+for Android development.
+Features:
+1.
+2.
+3.
+4.
+
+Code editor for Java, Kotlin, and XML.
+Emulator for testing Android apps.
+Visual layout editor for designing app UIs.
+Debugging and performance tools.
+
+23-122
+
+Android Practical
+
+23-122
+
+Application Fundamentals:
+Android Application Structure:
+Manifest File: Contains app metadata (permissions, components).
+Source Code (Java/Kotlin): App logic and UI components.
+Resources (XML): Layouts, strings, images, etc.
+Gradle: Build automation system for compiling the app.
+Creating a Project
+Steps:
+1. Open Android Studio.
+2. Select “Create New Project.”
+3. Choose project template (e.g., Empty Activity).
+4. Set app name, language (Java/Kotlin), and save location.
+5. Click “Finish” to create the project.
+
+Android Components Overview:
+●
+●
+●
+●
+●
+
+Components: The building blocks of Android applications.
+Activities: Represent screens in an app.
+Services: Run in the background to perform long-running tasks.
+Content Providers: Manage app data and share it across apps.
+Broadcast Receivers: Respond to system-wide events (e.g.,
+battery low).
+
+Activities in Android:
+An activity represents a single screen with a user interface (UI).
+Lifecycle:
+Activities go through several states: onCreate(), onStart(), onResume(),
+onPause(), onStop(), onDestroy().
+Example:
+The main screen of an app where users interact with buttons, lists, etc.
+
+Android Practical
+
+23-122
+
+Services in Android:
+A service is a background process that runs without a user interface.
+Types of Services:
+1. Foreground Service: Runs in the background with a visible
+notification.
+2. Background Service: Runs without user interaction, but
+consumes less system resources.
+Content Providers in Android:
+Content providers manage access to shared app data, such as
+databases.
+Usage: Allows other apps to query or modify data in a standardized way.
+Example: Accessing contacts or media files.
+
+Broadcast Receivers in Android:
+Broadcast receivers listen for system-wide or app-specific events
+(broadcasts).
+Examples:
+Battery level change,Wi-Fi status change
+
+Interface Overview in Android
+User Interface Components:
+1.
+2.
+3.
+4.
+5.
+6.
+
+TextView: Displays text.
+Button: Triggers actions when clicked.
+EditText: Input field for user text.
+ImageView: Displays images.
+RecyclerView: Displays a list of data.
+Layouts: Defines how UI elements are arranged (e.g.,
+LinearLayout,RelativeLayout).
+
+Android Practical
+
+23-122
+
+Creating Android Virtual Device (AVD):
+Purpose: An AVD emulates an Android device on your computer to run
+and test apps.
+Steps:
+1. Open Android Studio and go to AVD Manager.
+2. Click “Create Virtual Device.”
+3. Choose a device (e.g., Pixel 5) and select the system image
+(Android version).
+4. Finish setup and launch the AVD.
+
+USB Debugging Mode:
+USB Debugging allows you to communicate with your Android device
+from Android Studio.
+Steps:
+1. On your Android device, go to Settings > About phone > Tap "Build
+number" 7 times to enable Developer options.
+2. In Developer options, enable USB Debugging.
+
+Android Application Overview Basic:
+Structure :
+Manifest File: Describes app components, permissions.
+Activities & Services: Core components for interaction and
+background tasks.
+Resources: UI elements and data.
+Java/Kotlin Code: Logic and functionality.
+
+Android Practical
+
+23-122
+
+Simple “Hello World” program.
+
+Step 1: Create a New Project
+1. Open Android Studio.
+2. Click on Start a new Android Studio project.
+3. Select Empty Activity and click Next.
+4. Name your project (e.g., "HelloWorld").
+5. Choose Java or Kotlin as the programming language.
+6. Click Finish to create your project.
+
+Step 2: Modify the activity_main.xml
+Now you need to modify the layout for your main activity. Here’s how:
+1. Open res/layout/activity_main.xml in the Design tab or Text tab.
+
+Android Practical
+
+23-122
+
+2. Replace the existing code with the following XML to create a
+simple TextView with a "Your Name!" message:
+XML Code (activity_main.xml):
+
+Step 3: Modify MainActivity.java or MainActivity.kt
+If using Java, open MainActivity.java and make sure the following code is
+present (this is usually created automatically when you start a new
+project):
+package com.example.koalahelloworld;
+import android.os.Bundle;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+public class MainActivity extends AppCompatActivity {
+
+Android Practical
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+// You can manipulate the TextView here if needed
+TextView textView = findViewById(R.id.helloKoalaText);
+}
+}
+Step 4: Run Your Project
+1. Connect a device or use the Android Emulator.
+2. Click the Run button (green triangle) to build and launch the
+app on the emulator or device.
+3. You should see a screen with "Hello World!" displayed in the
+center.
+
+23-122
+
+Android Practical
+
+23-122
+
+Android Practical
+
+23-122
+
+Android Practical
+
+PRACTICAL 2
+Aim: Programming Resources
+Android Resources:
+(Color.Theme, String, Drawable,Dimension, Image)
+
+Color: Color.xml
+
+23-122
+
+Android Practical
+
+23-122
+
+1. Color Resource(res/values/colors.xml)
+Purpose: To define color values used in the app. Instead of hardcoding
+color values in your layout files, you can reference them as resource IDs.
+This makes it easy to change the app's color scheme across different
+screens.
+Example (res/values/colors.xml):
+
+<resources>
+<color name="primaryColor">#3F51B5</color> <!-- Blue color -->
+<color name="accentColor">#FF4081</color> <!-- Pink color -->
+<color name="backgroundColor">#FFFFFF</color> <!-- White
+background --> </resources>
+
+You can reference these colors in your layout or styles like this:
+android:background="@color/primaryColor"
+android:textColor="@color/accentColor"
+
+Android Practical
+
+23-122
+
+2. Theme Resource (res/values/styles.xml):
+Purpose: Themes define a set of styles that can be applied to an
+entire application or specific activities.
+Themes are often used to define the overall appearance, such as
+colors, font styles, and button styles.
+
+3. String (res/values/strings.xml) :
+Purpose: To define text values used throughout the app.
+By defining strings in a separate XML file, you can easily localize your
+app into different languages. It helps in making your app scalable and
+adaptable.
+
+Android Practical
+
+23-122
+
+4. Drawable (res/drawable/) :
+Purpose: Drawables are graphic resources like images (PNG, JPEG,
+etc.),
+XML shapes, and vector images.
+They can be used as backgrounds, icons, buttons, and other visual
+elements.
+Example:
+You can define a drawable like a custom shape or background in
+XML.
+Drag and drop the image in drawable folder and click ok change the
+background layout color or images.
+
+5. Dimension (res/values/dimens.xml):
+Purpose: To define fixed sizes (like padding, margin, or font size) that
+can be referenced throughout the app.
+This allows the app to be more flexible, as changes to the UI layout (like
+padding or margins) can be done in one place, and the app will scale
+accordingly.
+
+Android Practical
+
+23-122
+
+6. Image (res/drawable/) :
+Purpose: Images such as logos, icons, and pictures are stored in the
+drawable folder. Android supports various resolution versions of images
+to cater to different screen densities (hdpi, mdpi, xhdpi, etc.).
+Example:
+You might place an image like logo.png in the res/drawable/ folder.
+Code (Background image):
+activity_main.xml:
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/images"
+tools:context=".MainActivity">
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text=”Sohail Shaikh"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+Android Practical
+
+Output:
+
+23-122
+
+Android Practical
+
+23-122
+
+Practical 3
+Aim: Programming activities
+Introduction: In Android development, an Activity is a single screen with a user
+interface. Every Android app is made up of one or more activities, each representing a
+different screen or interaction point. A Fragment is a modular section of an activity
+that has its own lifecycle, receives its own input events, and can be added or removed
+while the activity is running.
+
+Activity Lifecycle:
+
+Android Practical
+
+23-122
+
+Activity Life Cycle:
+Every Android Activity goes through a series of states from creation to
+destruction. Android provides callback methods that are triggered at each
+stage:
+
+
+onCreate() - Called when the activity is first created. Used to
+initialize UI components and set the content view.
+
+
+
+onStart() - Called when the activity becomes visible to the user.
+
+
+
+onResume() - Called when the activity starts interacting with the user.
+The activity is now in the foreground.
+
+
+
+onPause() - Called when the system is about to resume another
+activity. Used to save unsaved changes.
+
+
+
+onStop() - Called when the activity is no longer visible to the user.
+
+
+
+onRestart() - Called when the activity is restarting after being
+stopped.
+
+
+
+onDestroy() - Called before the activity is destroyed. Used to release
+resources.
+
+Activity Methods:
+Key methods used in an Activity include:
+
+
+setContentView() - Sets the layout XML file to be displayed.
+
+
+
+findViewById() - Finds a UI element by its ID.
+
+
+
+startActivity() - Launches a new activity using an Intent.
+
+
+
+finish() - Closes the current activity and returns to the previous one.
+
+
+
+getIntent() - Retrieves the Intent that started the activity, used to
+receive passed data.
+
+Multiple Activities:
+
+Android Practical
+
+23-122
+
+An Android application can contain multiple activities. Navigation between
+activities is handled using Intents. An Explicit Intent is used to start a
+specific activity within the same app by directly specifying the target class.
+Data can be passed between activities using putExtra() and retrieved using
+getExtra().
+Fragment Life Cycle:
+A Fragment has its own lifecycle which is closely tied to its host Activity.
+The key lifecycle methods of a Fragment are:
+
+
+onAttach() - Called when the fragment is attached to its host activity.
+
+
+
+onCreate() - Called to initialize the fragment.
+
+
+
+onCreateView() - Called to inflate and return the fragment's layout.
+
+
+
+onActivityCreated() - Called when the host activity's onCreate() has
+completed.
+
+
+
+onStart() - Called when the fragment becomes visible.
+
+
+
+onResume() - Called when the fragment starts interacting with the
+user.
+
+
+
+onPause() - Called when the fragment is no longer interacting with
+the user.
+
+
+
+onStop() - Called when the fragment is no longer visible.
+
+
+
+onDestroyView() - Called when the fragment's view is being
+removed.
+
+
+
+onDetach() - Called when the fragment is detached from its activity.
+
+Multiple Fragments:
+Multiple fragments can be used within a single activity to create a flexible
+and dynamic UI. Fragments are managed using the FragmentManager and
+FragmentTransaction classes. Common operations include:
+
+
+add() - Adds a fragment to the container
+
+Android Practical
+
+23-122
+
+
+
+replace() - Replaces an existing fragment with a new one.
+
+
+
+remove() - Removes a fragment from the container.
+
+
+
+addToBackStack() – Adds the transaction to the back stack so the
+user can navigate back to the previous fragment by pressing the back
+button.
+
+
+
+commit() - Commits the transaction to apply all changes.
+
+Activity Lifecycle (StateChangeActivity.kt):
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+class StateChangeActivity : AppCompatActivity() {
+val TAG = "StateChange"
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_state_change)
+Log.i(TAG, "onCreate")
+}
+override fun onStart() {
+super.onStart()
+Log.i(TAG, "onStart")
+}
+override fun onResume() {
+super.onResume()
+Log.i(TAG, "onResume")
+}
+override fun onPause() {
+super.onPause()
+Log.i(TAG, "onPause")
+}
+
+Android Practical
+
+override fun onStop() {
+super.onStop()
+Log.i(TAG, "onStop")
+}
+override fun onRestart() {
+super.onRestart()
+Log.i(TAG, "onRestart")
+}
+override fun onDestroy() {
+super.onDestroy()
+Log.i(TAG, "onDestroy")
+}
+override fun onSaveInstanceState(outState: Bundle) {
+super.onSaveInstanceState(outState)
+Log.i(TAG, "onSaveInstanceState")
+}
+override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+super.onRestoreInstanceState(savedInstanceState)
+Log.i(TAG, "onRestoreInstanceState")
+}
+}
+
+Multiple Activities: ( activity_main.xml (First Activity Layout)
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<TextView
+android:id="@+id/text"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="This is my first app!" />
+
+23-122
+
+Android Practical
+
+23-122
+
+<Button
+android:id="@+id/second"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Click Second Activity"
+android:textColor="@color/colorPrimary"
+android:layout_above="@+id/third"
+android:layout_alignStart="@+id/third"
+android:layout_marginBottom="40dp" />
+<Button
+android:id="@+id/third"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Click Third Activity"
+android:textColor="@color/colorPrimary"
+android:layout_alignParentBottom="true"
+android:layout_marginBottom="196dp"
+android:layout_toEndOf="@+id/text" />
+</RelativeLayout>
+
+activity-second.xml:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_margin="20pt"
+android:text="Second Activity is working...."
+android:textAllCaps="true"
+android:textColor="@color/colorPrimaryDark" />
+
+Android Practical
+
+23-122
+
+</LinearLayout>
+
+Activity-third.xml:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_margin="20pt"
+android:text="Third Activity is working........."
+android:textAllCaps="true"
+android:textColor="@color/colorPrimary" />
+</LinearLayout>
+
+MainActivity.kt
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+class MainActivity : AppCompatActivity() {
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
+val second = findViewById<Button>(R.id.second)
+val third = findViewById<Button>(R.id.third)
+second.setOnClickListener {
+
+Android Practical
+
+val intent = Intent(this, SecondActivity::class.java)
+startActivity(intent)
+}
+third.setOnClickListener {
+val intent = Intent(this, ThirdActivity::class.java)
+startActivity(intent)
+}
+}
+}
+
+23-122
+
+Android Practical
+
+23-122
+
+Practical 4
+AIM: Programs related to different Layouts: Coordinate,
+Linear, Relative, Table, Absolute, Frame, List View, Grid View.
+1 Linear Layout
+Definition:
+Linear Layout is a layout that arranges views in a single row or a single
+column.
+Working:
+It uses the orientation attribute (vertical or horizontal) to place
+elements one after another in a straight line.
+
+2 Relative Layout
+Definition:
+Relative Layout is a layout that positions views relative to each other or
+relative to the parent layout.
+Working:
+It uses positioning rules such as below, above, alignParentTop,
+and centerInParent to arrange views.
+
+3 Frame Layout
+Definition:
+Frame Layout is a layout that displays one view or stacks multiple views
+on top of each other.
+Working:
+It shows the view placed inside it. If multiple views are added, they
+overlap. If no view is added, nothing is displayed.
+
+Android Practical
+
+23-122
+
+4 Table Layout
+
+Defination:
+TableLayout is a layout that organizes views into rows and columns like
+a table.
+Working:
+It uses TableRow to create rows, and views placed inside each row act
+as columns.
+
+5 Absolute Layout (Deprecated)
+Definition:
+Absolute Layout is a layout that places views using fixed X and Y
+coordinates.
+Working:
+It positions elements using exact screen coordinates. It is not responsive
+and is not recommended for modern Android development.
+
+6 ListView
+Definition:
+ListView is a view that displays a scrollable vertical list of items.
+Working:
+It uses an Adapter to connect data (like Apple, Banana, Mango) to the
+list and display each item.
+
+7 GridView
+Definition:
+GridView is a view that displays items in rows and columns in grid
+format.
+Working:
+It uses the numColumns property and an Adapter to arrange items in a
+grid style.
+
+Android Practical
+
+Code:
+MainActivity.java:
+package
+com.example.practic
+al3;
+import
+android.os.Bundle;
+import
+android.widget.ArrayAd
+apter; import
+android.widget.GridView
+; import
+android.widget.ListView;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import
+androidx.core.view.ViewCompat;
+import
+androidx.core.view.WindowInsetsComp
+at; public class MainActivity extends
+AppCompatActivity {
+ListView listView;
+GridView gridView;
+String[] listItems = {"Apple", "Banana", "Mango", "Orange"};
+String[] gridItems = {"A", "B", "C", "D", "E", "F"};
+@Override
+
+23-122
+
+Android Practical
+
+23-122
+
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+EdgeToEdge.enable(this);
+setContentView(R.layout.activity_main);
+ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main),
+(v, insets) -> {
+Insets systemBars =
+insets.getInsets(WindowInsetsCompat.Type.systemBars());
+v.setPadding(systemBars.left, systemBars.top, systemBars.right,
+systemBars.bottom);
+return insets;
+});
+listView =
+findViewById(R.id.listView);
+gridView =
+findViewById(R.id.gridView);
+ArrayAdapter<String> listAdapter =
+new
+ArrayAdapter<>(this,
+android.R.layout.simple_list_item_1,
+listItems);
+ArrayAdapter<String> gridAdapter =
+new
+ArrayAdapter<>(this,
+android.R.layout.simple_list_item_1,
+gridItems);
+listView.setAdapter(listAdapter);
+gridView.setAdapter(gridAdapter);
+}
+}
+activity_main.xml:
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.Coordinat
+orLayout
+
+Android Practical
+
+xmlns:android="http://schemas.android.com/a
+pk/res/android" android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<ScrollView
+android:layout_width="match_parent
+"
+android:layout_height="match_paren
+t">
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:padding="10dp">
+<!-- 1. Linear Layout -->
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="1. Linear Layout"
+android:textStyle="bold"
+android:textSize="18sp"/>
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal">
+<Button
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Btn1"/>
+<Button
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+
+23-122
+
+Android Practical
+
+android:text="Btn2"/>
+</LinearLayout>
+<!-- 2. Relative Layout -->
+<TextView
+android:layout_width="wrap_cont
+ent"
+android:layout_height="wrap_co
+ntent"
+android:text="2.
+Relative Layout"
+android:textStyle="bold"
+android:textSize="18sp"
+android:paddingTop="10dp"/>
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="100dp">
+<Button
+android:id="@+id/rbtn1"
+android:layout_width="wrap_conte
+nt"
+android:layout_height="wrap_conte
+nt"
+android:text="Top"/>
+<Button
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Below"
+android:layout_below="@id/rbtn1"/>
+</RelativeLayout>
+-->
+
+<!-- 3. Frame Layout
+<TextView
+
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+
+23-122
+
+Android Practical
+
+android:text="3. Frame Layout"
+android:textStyle="bold"
+android:textSize="18sp"
+android:paddingTop="10dp"/>
+<FrameLayout
+android:layout_width="match_parent"
+android:layout_height="100dp"
+android:background="#DDDDDD">
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Centered Text"
+android:layout_gravity="center"/>
+</FrameLayout>
+<!-- 4. Table Layout -->
+<TextView
+android:layout_width="wrap_cont
+ent"
+android:layout_height="wrap_co
+ntent"
+android:text="4.
+Table Layout"
+android:textStyle="bold"
+android:textSize="18sp"
+android:paddingTop="10dp"/>
+<TableLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:stretchColumns="1">
+<TableRow
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+23-122
+
+Android Practical
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Name"/>
+<EditText
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:hint="Enter Name"/>
+</TableRow>
+<TableRow
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Age"/>
+<EditText
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:hint="Enter Age"/>
+</TableRow>
+</TableLayout>
+<!-- 5. Absolute Layout -->
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="5. Absolute Layout
+(Deprecated)"
+
+23-122
+
+Android Practical
+
+android:textStyle="bold"
+android:textSize="18sp"
+android:paddingTop="10dp"/>
+<AbsoluteLayout
+android:layout_width="match_parent"
+android:layout_height="120dp">
+<Button
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Absolute Btn"
+android:layout_x="50dp"
+android:layout_y="40dp"/>
+</AbsoluteLayout>
+<!-- 6. ListView -->
+<TextView
+android:layout_width="wrap_cont
+ent"
+android:layout_height="wrap_co
+ntent"
+android:text="6.
+List View"
+android:textStyle="bold"
+android:textSize="18sp"
+android:paddingTop="10dp"/>
+<ListView
+android:id="@+id/listView"
+android:layout_width="match_pa
+rent"
+android:layout_height="150dp"/>
+<!-- 7. GridView -->
+<TextView
+
+android:layout_width="wrap_
+cont ent"
+android:layout_height="wrap_co
+
+23-122
+
+Android Practical
+
+ntent"
+android:text="7.
+Grid View"
+android:textStyle="bold"
+android:textSize="18sp"
+android:paddingTop="10dp"/>
+<GridView
+android:id="@+id/gridView"
+android:layout_width="match_pa
+rent"
+android:layout_height="150dp"
+android:numColumns="3"
+android:verticalSpacing="5dp"
+android:horizontalSpacing="5dp"/
+>
+</LinearLayout>
+</ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+23-122
+
+Android Practical
+
+Output:
+
+23-122
+
+Android Practical
+
+Practical 5
+Aim: Programming UI elements AppBar, Fragments, UI
+Components in android
+Step 1: Create a New Android Project
+1.
+2.
+3.
+4.
+5.
+
+Open Android Studio.
+Select "Empty Views Activity" template.
+Name the project (e.g., UIElementsApp).
+Choose Java or Kotlin as the language.
+Click Finish.
+
+Step 2: Modify activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".MainActivity" >
+<androidx.appcompat.widget.Toolbar
+android:id="@+id/toolbar"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="?attr/colorPrimary"
+android:minHeight="?attr/actionBarSize"
+android:theme="?attr/actionBarTheme"
+app:title="Simple UI App" />
+<androidx.fragment.app.FragmentContainerView
+android:id="@+id/fragment_container"
+android:name="androidx.fragment.app.ListFragment"
+android:layout_width="match_parent"
+android:layout_height="wrap_content" />
+</LinearLayout>
+
+Step 3: Modify MainActivity.kt
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+
+23-122
+
+Android Practical
+
+23-122
+
+class MainActivity : AppCompatActivity() {
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+enableEdgeToEdge()
+setContentView(R.layout.activity_main)
+setSupportActionBar(findViewById(R.id.toolbar))
+if(savedInstanceState==null)
+{
+loadFragment(HomeFragment())
+}
+}
+private fun loadFragment(fragment:Fragment)
+{
+supportFragmentManager.beginTransaction().replace(R.id.fragment_container,fra
+gment).commit()
+}
+}
+
+Step 4: Create a Home Fragment
+1. Right-click on com.example.uielementsapp -> New -> Fragment -> Blank
+Fragment.
+2. Name it HomeFragment.
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+class HomeFragment : Fragment() {
+override fun onCreateView(
+inflater: LayoutInflater, container: ViewGroup?,
+savedInstanceState: Bundle?
+): View? {
+// Inflate the layout for this fragment
+val view = inflater.inflate(R.layout.fragment_home, container,
+false)
+view.findViewById<Button>(R.id.btnNavigate).setOnClickListener(){
+parentFragmentManager.beginTransaction().replace(R.id.fragment_container,Sec
+ondFragment()).addToBackStack(null).commit()
+}
+return view
+}
+
+Android Practical
+}
+
+Step 5 : Modify res/layout/fragment_home.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".HomeFragment" >
+<TextView
+android:id="@+id/textView"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Welcome To Home Fragment" />
+<Button
+android:id="@+id/btnNavigate"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Go To Second Fragment" />
+</LinearLayout>
+
+Step 6: Create a Second Fragment
+1. Right-click on com.example.uielementsapp -> New -> Fragment -> Blank
+Fragment.
+2. Name it SecondFragment.
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+class SecondFragment : Fragment() {
+
+override fun onCreateView(
+inflater: LayoutInflater, container: ViewGroup?,
+savedInstanceState: Bundle?
+): View? {
+// Inflate the layout for this fragment
+return inflater.inflate(R.layout.fragment_second, container, false)
+}
+}
+
+23-122
+
+Android Practical
+Step 7 : Modify res/layout/fragment_second.xml
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".SecondFragment">
+<!-- TODO: Update blank fragment layout -->
+<TextView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:text="This is Second Fragment" />
+</FrameLayout>
+
+Output:
+
+23-122
+
+Android Practical
+
+Practical 6
+Aim: Programming menus, dialog, dialog fragments
+Step I : Create a New Android Project
+●
+●
+●
+●
+●
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "MenusPractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step 2: Modify activity_main.xml
+1. Open res/layout/activity_main.xml.
+2. Replace the content with:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+android:padding="16dp">
+<!-- Button for Pop-up Menu -->
+<Button
+android:id="@+id/btnPopupMenu"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Show Pop-up Menu"/>
+<!-- TextView for Context Menu -->
+<TextView
+android:id="@+id/tvContextMenu"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Long Press Me (Context Menu)"
+android:textSize="18sp"
+android:padding="16dp"
+android:background="@android:color/darker_gray"
+android:layout_marginTop="20dp"/>
+</LinearLayout>
+
+Step 3: Create Menu XML Files
+1. Create popup_menu.xml (Pop-up Menu)
+1. Right Click on res folder -> New -> Android Resource File -> Name as
+“popup_menu.xml” and Resource type as “Menu”
+2. Add the following:
+
+23-122
+
+Android Practical
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/item1" android:title="Item 1"/>
+<item android:id="@+id/item2" android:title="Item 2"/>
+<item android:id="@+id/item3" android:title="Item 3"/>
+</menu>
+2. Create context_menu.xml (Pop-up Menu)
+3. Right Click on res folder -> New -> Android Resource File -> Name as
+“context_menu.xml” and Resource type as “Menu”
+4. Add the following:
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/context_edit" android:title="Edit"/>
+<item android:id="@+id/context_delete" android:title="Delete"/>
+</menu>
+3. Create options_menu.xml (Pop-up Menu)
+5. Right Click on res folder -> New -> Android Resource File -> Name as
+“options_menu.xml” and Resource type as “Menu”
+6. Add the following:
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/settings" android:title="Settings"/>
+<item android:id="@+id/about" android:title="About"/>
+</menu>
+
+23-122
+
+Android Practical
+Step 4: Modify MainActivity.kt
+1. Open MainActivity.kt.
+2. Replace the content with:
+import android.os.Bundle
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.PopupMenu
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
+val btnPopupMenu: Button = findViewById(R.id.btnPopupMenu)
+val tvContextMenu: TextView = findViewById(R.id.tvContextMenu)
+registerForContextMenu(tvContextMenu)
+btnPopupMenu.setOnClickListener {
+showPopupMenu(it)
+}
+}
+// Create Options Menu
+override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+menuInflater.inflate(R.menu.options_menu, menu)
+return true
+}
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+return when (item.itemId) {
+R.id.settings, R.id.about -> {
+showDialog(item.title.toString())
+true
+}
+else -> super.onOptionsItemSelected(item)
+}
+}
+// Show Pop-up Menu
+private fun showPopupMenu(view: View) {
+val popup = PopupMenu(this, view)
+popup.menuInflater.inflate(R.menu.popup_menu, popup.menu)
+popup.show()
+}
+// Create Context Menu
+override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo:
+ContextMenu.ContextMenuInfo?) {
+super.onCreateContextMenu(menu, v, menuInfo)
+
+23-122
+
+Android Practical
+menuInflater.inflate(R.menu.context_menu, menu)
+}
+private fun showDialog(title: String) {
+AlertDialog.Builder(this)
+.setTitle("Menu Item Clicked")
+.setMessage("You clicked on: $title")
+.setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+.show()
+}
+}
+
+}
+
+Step 4: Modify AndroidManifest.xml
+1. Open app -> manifest -> AndroidManifest.xml
+2. Add or replace the following line :
+android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+
+Output:
+
+23-122
+
+Android Practical
+
+23-122
+
+Android Practical
+
+Practical 7
+Aim: Programs on Intents, Events, Listeners and Adapters
+Step I : Create a New Android Project
+●
+●
+●
+●
+●
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "IntentsPractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step 2: open activity_main.xml (User Interface)
+●
+●
+
+Open res/layout/activity_main.xml.
+Replace with the following:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".MainActivity" >
+<EditText
+android:id="@+id/editURL"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginLeft="10dp"
+android:layout_marginTop="100dp"
+android:layout_marginRight="20dp"
+android:ems="10"
+android:inputType="text" />
+<Button
+android:id="@+id/butImplicit"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dp"
+android:text="Implicit Intent" />
+<Button
+android:id="@+id/butExplicit"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dp"
+android:text="Explicit Intent" />
+</LinearLayout>
+
+23-122
+
+Android Practical
+
+Step 3: Create a another activity
+Right Click app -> New -> Activity -> EmptyViewsActivity -> name as “SecondActivity.xml”
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".SecondActivity">
+<TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="50dp"
+android:layout_marginTop="100dp"
+android:layout_marginEnd="50dp"
+android:layout_marginBottom="383dp"
+android:text="Hello World"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+23-122
+
+Android Practical
+Step 4: Modify MainActivity.kt
+●
+●
+
+Open MainActivity.kt.
+Replace the content with:
+
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+class MainActivity : AppCompatActivity() {
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+enableEdgeToEdge()
+setContentView(R.layout.activity_main)
+val editUrl = findViewById<EditText>(R.id.editURL)
+val butImplicit = findViewById<Button>(R.id.butImplicit)
+val butExplicit = findViewById<Button>(R.id.butExplicit)
+butImplicit.setOnClickListener()
+{
+val url = editUrl.text.toString()
+val urlIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+startActivity(urlIntent)
+}
+butExplicit.setOnClickListener(){
+val secondIntent = Intent(this,SecondActivity::class.java)
+startActivity(secondIntent)
+}
+}
+}
+
+23-122
+
+Android Practical
+
+Output:
+
+23-122
+
+Android Practical
+
+Practical 8
+Aim: Programs on Services, notification and broadcast
+receivers
+
+Step I : Create a New Android Project
+●
+●
+●
+●
+●
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "BroadcastPractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step II :Create File Named AirPlaneModeChangeReceiver.kt
+Select kotlin+java from app -> Right click on package com.example.BroadcastPractical
+folder -> New -> Kotlin Class/File -> name it as “AirPlaneModeChangeReceiver.kt”
+
+Step III :Add The Following Code
+import android.content.BroadcastReceiver
+import android.content.ContentValues.TAG
+import android.content.Context
+import android.content.Intent
+import android.util.Log
+import android.widget.Toast
+class AirplaneModeChangeReceiver : BroadcastReceiver() {
+override fun onReceive(context: Context?, intent: Intent?) {
+val isAirplaneModeEnabled = intent?.getBooleanExtra("state", false) ?:
+return
+if (isAirplaneModeEnabled) {
+Toast.makeText(context, "Airplane Mode Enabled",
+Toast.LENGTH_LONG).show()
+} else {
+Toast.makeText(context, "Airplane Mode Disabled",
+Toast.LENGTH_LONG).show()
+}
+}
+}
+
+23-122
+
+Android Practical
+
+Step IV :Open MainActivity.kt file
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+class MainActivity : AppCompatActivity() {
+lateinit var receiver: AirplaneModeChangeReceiver
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+enableEdgeToEdge()
+setContentView(R.layout.activity_main)
+receiver = AirplaneModeChangeReceiver()
+ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+v.setPadding(systemBars.left, systemBars.top, systemBars.right,
+systemBars.bottom)
+insets
+}
+IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
+registerReceiver(receiver, it)
+}
+}
+override fun onStop() {
+super.onStop()
+unregisterReceiver(receiver)
+}
+}
+
+Output:
+
+23-122
+
+Android Practical
+
+Practical 9
+
+Aim: Database Programming with SQLite
+
+Step I : Create a New Android Project
+●
+●
+●
+●
+●
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "SQLitePractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step 2: Modify AndroidManifest.xml
+1. Add permissions (not required for local SQLite, but useful for storage-related
+operations):
+<uses-permission
+android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+Step 3: open activity_main.xml (User Interface)
+●
+●
+
+Open res/layout/activity_main.xml.
+Replace with the following:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp">
+<!-- EditText to enter name -->
+<EditText
+android:id="@+id/etName"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="Enter Name"/>
+<!-- Button to insert data -->
+<Button
+android:id="@+id/btnInsert"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+
+23-122
+
+Android Practical
+android:text="Insert Data"/>
+<!-- Button to fetch data -->
+<Button
+android:id="@+id/btnFetch"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Fetch Data"
+android:layout_marginTop="8dp"/>
+<!-- TextView to display data -->
+<TextView
+android:id="@+id/tvResult"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textSize="18sp"
+android:padding="8dp"/>
+</LinearLayout>
+
+Step 4: Create DatabaseHelper.kt (SQLite Database Helper Class)
+1. Right-click on app/java/com.example.sqlitepractical/ → New → Kotlin
+Class → Name it DatabaseHelper.
+2. Add the following code:
+import android.content.ContentValues
+import android.content.Context
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
+class DatabaseHelper(context: Context) : SQLiteOpenHelper(context,
+DATABASE_NAME, null, 1) {
+companion object {
+private const val DATABASE_NAME = "UserDB"
+private const val TABLE_NAME = "users"
+private const val COLUMN_ID = "id"
+private const val COLUMN_NAME = "name"
+}
+override fun onCreate(db: SQLiteDatabase) {
+val createTable = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER
+PRIMARY KEY AUTOINCREMENT, $COLUMN_NAME TEXT)"
+db.execSQL(createTable)
+}
+override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion:
+Int) {
+db.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
+onCreate(db)
+
+23-122
+
+Android Practical
+}
+// Insert Data
+fun insertData(name: String): Boolean {
+val db = writableDatabase
+val contentValues = ContentValues()
+contentValues.put(COLUMN_NAME, name)
+val result = db.insert(TABLE_NAME, null, contentValues)
+return result != -1L
+}
+// Fetch Data
+fun getAllData(): Cursor {
+val db = readableDatabase
+return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+}
+}
+
+Step 5: Modify MainActivity.kt
+●
+●
+
+Open MainActivity.kt.
+Replace the content with:
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.database.Cursor
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+class MainActivity : AppCompatActivity() {
+private lateinit var dbHelper: DatabaseHelper
+private lateinit var etName: EditText
+private lateinit var btnInsert: Button
+private lateinit var btnFetch: Button
+private lateinit var tvResult: TextView
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
+dbHelper = DatabaseHelper(this)
+etName = findViewById(R.id.etName)
+btnInsert = findViewById(R.id.btnInsert)
+btnFetch = findViewById(R.id.btnFetch)
+tvResult = findViewById(R.id.tvResult)
+// Insert Data
+btnInsert.setOnClickListener {
+val name = etName.text.toString()
+if (name.isNotEmpty()) {
+val isInserted = dbHelper.insertData(name)
+if (isInserted) {
+Toast.makeText(this, "Data Inserted",
+Toast.LENGTH_SHORT).show()
+
+23-122
+
+Android Practical
+etName.text.clear()
+} else {
+Toast.makeText(this, "Insertion Failed",
+Toast.LENGTH_SHORT).show()
+}
+} else {
+Toast.makeText(this, "Enter a name!",
+Toast.LENGTH_SHORT).show()
+}
+}
+// Fetch Data
+btnFetch.setOnClickListener {
+val cursor: Cursor = dbHelper.getAllData()
+val stringBuilder = StringBuilder()
+if (cursor.moveToFirst()) {
+do {
+val id = cursor.getInt(0)
+val name = cursor.getString(1)
+stringBuilder.append("ID: $id, Name: $name\n")
+} while (cursor.moveToNext())
+} else {
+stringBuilder.append("No data found")
+}
+tvResult.text = stringBuilder.toString()
+}
+}
+}
+
+Output:
+
+23-122
+
+

@@ -1,0 +1,829 @@
+Practical 5
+Programming UI elements AppBar, Fragments, UI Components in android
+
+Step 1: Create a New Android Project
+1.​ Open Android Studio.
+2.​ Select "Empty Views Activity" template.
+3.​ Name the project (e.g., UIElementsApp).
+4.​ Choose Java or Kotlin as the language.
+5.​ Click Finish.
+Step 2: Modify activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".MainActivity" >
+<androidx.appcompat.widget.Toolbar
+android:id="@+id/toolbar"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="?attr/colorPrimary"
+android:minHeight="?attr/actionBarSize"
+android:theme="?attr/actionBarTheme"
+app:title="Simple UI App" />
+<androidx.fragment.app.FragmentContainerView
+android:id="@+id/fragment_container"
+android:name="androidx.fragment.app.ListFragment"
+android:layout_width="match_parent"
+android:layout_height="wrap_content" />
+</LinearLayout>
+
+Step 3: Modify MainActivity.kt
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+
+class MainActivity : AppCompatActivity() {
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+enableEdgeToEdge()
+setContentView(R.layout.activity_main)
+setSupportActionBar(findViewById(R.id.toolbar))
+if(savedInstanceState==null)
+{
+loadFragment(HomeFragment())
+}
+}
+private fun loadFragment(fragment:Fragment)
+{
+supportFragmentManager.beginTransaction().replace(R.id.fragment_container,fra
+gment).commit()
+}
+}
+
+Step 4: Create a Home Fragment
+1.​Right-click on com.example.uielementsapp -> New -> Fragment -> Blank
+Fragment.
+2.​Name it HomeFragment.
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+class
+
+HomeFragment : Fragment() {
+
+override fun onCreateView(
+inflater: LayoutInflater, container: ViewGroup?,
+savedInstanceState: Bundle?
+): View? {
+// Inflate the layout for this fragment
+val view = inflater.inflate(R.layout.fragment_home, container,
+false)
+view.findViewById<Button>(R.id.btnNavigate).setOnClickListener(){
+parentFragmentManager.beginTransaction().replace(R.id.fragment_container,Sec
+ondFragment()).addToBackStack(null).commit()
+}
+return view
+}
+
+}
+
+Step 5 : Modify res/layout/fragment_home.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".HomeFragment" >
+<TextView
+android:id="@+id/textView"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Welcome To Home Fragment" />
+<Button
+android:id="@+id/btnNavigate"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Go To Second Fragment" />
+</LinearLayout>
+
+Step 6: Create a Second Fragment
+1.​Right-click on com.example.uielementsapp -> New -> Fragment -> Blank
+Fragment.
+2.​Name it SecondFragment.
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+class SecondFragment : Fragment() {
+
+override fun onCreateView(
+inflater: LayoutInflater, container: ViewGroup?,
+savedInstanceState: Bundle?
+): View? {
+// Inflate the layout for this fragment
+return inflater.inflate(R.layout.fragment_second, container, false)
+}
+}
+
+Step 7 : Modify res/layout/fragment_second.xml
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".SecondFragment">
+<!-- TODO: Update blank fragment layout -->
+<TextView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:text="This is Second Fragment" />
+</FrameLayout>
+
+Practical 6
+Programming menus, dialog, dialog fragments
+
+Step I : Create a New Android Project
+●​
+●​
+●​
+●​
+●​
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "MenusPractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step 2: Modify activity_main.xml
+1.​ Open res/layout/activity_main.xml.
+2.​ Replace the content with:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+android:padding="16dp">
+<!-- Button for Pop-up Menu -->
+<Button
+android:id="@+id/btnPopupMenu"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Show Pop-up Menu"/>
+<!-- TextView for Context Menu -->
+<TextView
+android:id="@+id/tvContextMenu"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Long Press Me (Context Menu)"
+android:textSize="18sp"
+android:padding="16dp"
+android:background="@android:color/darker_gray"
+android:layout_marginTop="20dp"/>
+</LinearLayout>
+
+Step 3: Create Menu XML Files
+1. Create popup_menu.xml (Pop-up Menu)
+1.​ Right Click on res folder -> New -> Android Resource File -> Name as
+“popup_menu.xml” and Resource type as “Menu”
+2.​ Add the following:
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/item1" android:title="Item 1"/>
+<item android:id="@+id/item2" android:title="Item 2"/>
+<item android:id="@+id/item3" android:title="Item 3"/>
+</menu>
+2. Create context_menu.xml (Pop-up Menu)
+3.​ Right Click on res folder -> New -> Android Resource File -> Name as
+“context_menu.xml” and Resource type as “Menu”
+4.​ Add the following:
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/context_edit" android:title="Edit"/>
+<item android:id="@+id/context_delete" android:title="Delete"/>
+</menu>
+3. Create options_menu.xml (Pop-up Menu)
+5.​ Right Click on res folder -> New -> Android Resource File -> Name as
+“options_menu.xml” and Resource type as “Menu”
+6.​ Add the following:
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/settings" android:title="Settings"/>
+<item android:id="@+id/about" android:title="About"/>
+</menu>
+
+Step 4: Modify MainActivity.kt
+1.​ Open MainActivity.kt.
+2.​ Replace the content with:
+import android.os.Bundle
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.PopupMenu
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
+val btnPopupMenu: Button = findViewById(R.id.btnPopupMenu)
+val tvContextMenu: TextView = findViewById(R.id.tvContextMenu)
+registerForContextMenu(tvContextMenu)
+btnPopupMenu.setOnClickListener {
+showPopupMenu(it)
+}
+}
+// Create Options Menu
+override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+menuInflater.inflate(R.menu.options_menu, menu)
+return true
+}
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+return when (item.itemId) {
+R.id.settings, R.id.about -> {
+showDialog(item.title.toString())
+true
+}
+else -> super.onOptionsItemSelected(item)
+}
+}
+// Show Pop-up Menu
+private fun showPopupMenu(view: View) {
+val popup = PopupMenu(this, view)
+popup.menuInflater.inflate(R.menu.popup_menu, popup.menu)
+popup.show()
+}
+// Create Context Menu
+override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo:
+ContextMenu.ContextMenuInfo?) {
+super.onCreateContextMenu(menu, v, menuInfo)
+
+menuInflater.inflate(R.menu.context_menu, menu)
+}
+private fun showDialog(title: String) {
+AlertDialog.Builder(this)
+.setTitle("Menu Item Clicked")
+.setMessage("You clicked on: $title")
+.setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+.show()
+}
+}
+
+​
+}
+
+Step 4: Modify AndroidManifest.xml
+1.​ Open app -> manifest -> AndroidManifest.xml
+2.​ Add or replace the following line :
+android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+
+Practical 7
+Programs on Intents, Events, Listeners and Adapters
+Step I : Create a New Android Project
+●​
+●​
+●​
+●​
+●​
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "IntentsPractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step 2: open activity_main.xml (User Interface)
+●​ Open res/layout/activity_main.xml.
+●​ Replace with the following:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".MainActivity" >
+<EditText
+
+android:id="@+id/editURL"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginLeft="10dp"
+android:layout_marginTop="100dp"
+android:layout_marginRight="20dp"
+android:ems="10"
+android:inputType="text" />
+<Button
+android:id="@+id/butImplicit"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dp"
+android:text="Implicit Intent" />
+<Button
+android:id="@+id/butExplicit"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dp"
+android:text="Explicit Intent" />
+</LinearLayout>
+
+Step III : Create a another activity
+Right Click app -> New -> Activity -> EmptyViewsActivity -> name as “SecondActivity.xml”
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".SecondActivity">
+<TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="50dp"
+android:layout_marginTop="100dp"
+android:layout_marginEnd="50dp"
+android:layout_marginBottom="383dp"
+android:text="Hello World"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+Step 5: Modify MainActivity.kt
+●​ Open MainActivity.kt.
+●​ Replace the content with:
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+class MainActivity : AppCompatActivity() {
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+enableEdgeToEdge()
+setContentView(R.layout.activity_main)
+val editUrl = findViewById<EditText>(R.id.editURL)
+val butImplicit = findViewById<Button>(R.id.butImplicit)
+val butExplicit = findViewById<Button>(R.id.butExplicit)
+butImplicit.setOnClickListener()
+{
+val url = editUrl.text.toString()
+val urlIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+startActivity(urlIntent)
+}
+butExplicit.setOnClickListener(){
+val secondIntent = Intent(this,SecondActivity::class.java)
+startActivity(secondIntent)
+}
+}
+}
+
+Practical 8
+Programs on Services, notification and broadcast receivers
+Step I : Create a New Android Project
+●​
+●​
+●​
+●​
+●​
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "BroadcastPractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step II :Create File Named AirPlaneModeChangeReceiver.kt
+Select kotlin+java from app -> Right click on package com.example.BroadcastPractical
+folder -> New -> Kotlin Class/File -> name it as “AirPlaneModeChangeReceiver.kt”
+
+Step III :Add The Following Code
+import android.content.BroadcastReceiver
+import android.content.ContentValues.TAG
+import android.content.Context
+import android.content.Intent
+import android.util.Log
+import android.widget.Toast
+class AirplaneModeChangeReceiver : BroadcastReceiver() {
+override fun onReceive(context: Context?, intent: Intent?) {
+val isAirplaneModeEnabled = intent?.getBooleanExtra("state", false) ?:
+return
+if (isAirplaneModeEnabled) {
+Toast.makeText(context, "Airplane Mode Enabled",
+Toast.LENGTH_LONG).show()
+} else {
+Toast.makeText(context, "Airplane Mode Disabled",
+Toast.LENGTH_LONG).show()
+}
+}
+}
+
+Step IV :Open MainActivity.kt file
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+class MainActivity : AppCompatActivity() {
+lateinit var receiver: AirplaneModeChangeReceiver
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+enableEdgeToEdge()
+setContentView(R.layout.activity_main)
+receiver = AirplaneModeChangeReceiver()
+ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+v.setPadding(systemBars.left, systemBars.top, systemBars.right,
+systemBars.bottom)
+insets
+}
+IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
+registerReceiver(receiver, it)
+}
+}
+override fun onStop() {
+super.onStop()
+unregisterReceiver(receiver)
+}
+}
+
+Practical 9
+Database Programming with SQLite
+
+Step I : Create a New Android Project
+●​
+●​
+●​
+●​
+●​
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "SQLitePractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step 2: Modify AndroidManifest.xml
+1.​ Add permissions (not required for local SQLite, but useful for storage-related
+operations):
+<uses-permission
+android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+Step 3: open activity_main.xml (User Interface)
+●​ Open res/layout/activity_main.xml.
+●​ Replace with the following:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp">
+<!-- EditText to enter name -->
+<EditText
+android:id="@+id/etName"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="Enter Name"/>
+<!-- Button to insert data -->
+<Button
+android:id="@+id/btnInsert"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+
+android:text="Insert Data"/>
+<!-- Button to fetch data -->
+<Button
+android:id="@+id/btnFetch"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Fetch Data"
+android:layout_marginTop="8dp"/>
+<!-- TextView to display data -->
+<TextView
+android:id="@+id/tvResult"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textSize="18sp"
+android:padding="8dp"/>
+</LinearLayout>
+
+Step 4: Create DatabaseHelper.kt (SQLite Database Helper Class)
+1.​ Right-click on app/java/com.example.sqlitepractical/ → New → Kotlin
+Class → Name it DatabaseHelper.
+2.​ Add the following code:
+import android.content.ContentValues
+import android.content.Context
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
+class DatabaseHelper(context: Context) : SQLiteOpenHelper(context,
+DATABASE_NAME, null, 1) {
+companion object {
+private const val DATABASE_NAME = "UserDB"
+private const val TABLE_NAME = "users"
+private const val COLUMN_ID = "id"
+private const val COLUMN_NAME = "name"
+}
+override fun onCreate(db: SQLiteDatabase) {
+val createTable = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER
+PRIMARY KEY AUTOINCREMENT, $COLUMN_NAME TEXT)"
+db.execSQL(createTable)
+}
+override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion:
+Int) {
+db.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
+onCreate(db)
+
+}
+// Insert Data
+fun insertData(name: String): Boolean {
+val db = writableDatabase
+val contentValues = ContentValues()
+contentValues.put(COLUMN_NAME, name)
+val result = db.insert(TABLE_NAME, null, contentValues)
+return result != -1L
+}
+// Fetch Data
+fun getAllData(): Cursor {
+val db = readableDatabase
+return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+}
+}
+
+Step 5: Modify MainActivity.kt
+●​ Open MainActivity.kt.
+●​ Replace the content with:
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.database.Cursor
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+class MainActivity : AppCompatActivity() {
+private lateinit var dbHelper: DatabaseHelper
+private lateinit var etName: EditText
+private lateinit var btnInsert: Button
+private lateinit var btnFetch: Button
+private lateinit var tvResult: TextView
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
+dbHelper = DatabaseHelper(this)
+etName = findViewById(R.id.etName)
+btnInsert = findViewById(R.id.btnInsert)
+btnFetch = findViewById(R.id.btnFetch)
+tvResult = findViewById(R.id.tvResult)
+// Insert Data
+btnInsert.setOnClickListener {
+val name = etName.text.toString()
+if (name.isNotEmpty()) {
+val isInserted = dbHelper.insertData(name)
+if (isInserted) {
+Toast.makeText(this, "Data Inserted",
+Toast.LENGTH_SHORT).show()
+
+etName.text.clear()
+} else {
+Toast.makeText(this, "Insertion Failed",
+Toast.LENGTH_SHORT).show()
+}
+} else {
+Toast.makeText(this, "Enter a name!",
+Toast.LENGTH_SHORT).show()
+}
+}
+// Fetch Data
+btnFetch.setOnClickListener {
+val cursor: Cursor = dbHelper.getAllData()
+val stringBuilder = StringBuilder()
+if (cursor.moveToFirst()) {
+do {
+val id = cursor.getInt(0)
+val name = cursor.getString(1)
+stringBuilder.append("ID: $id, Name: $name\n")
+} while (cursor.moveToNext())
+} else {
+stringBuilder.append("No data found")
+}
+tvResult.text = stringBuilder.toString()
+}
+}
+}
+
+Practical 10
+Programming threads, handles and asynchronized programs
+
+Step I : Create a New Android Project
+●​
+●​
+●​
+●​
+●​
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "ThreadAndHandlesPractical".
+Choose Kotlin as the language.
+Click Finish to create the project.
+
+Step II: Modify MainActivity.kt
+●​ Open MainActivity.kt.
+●​ Replace the content with:
+
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+class MainActivity : AppCompatActivity() {
+private lateinit var textView: TextView
+private lateinit var button: Button
+private val handler = Handler(Looper.getMainLooper()) // UI
+Thread Handler
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
+textView = findViewById(R.id.textView)
+button = findViewById(R.id.button)
+button.setOnClickListener {
+startThread()
+}
+}
+private fun startThread() {
+Thread {
+for (i in 1..10) {
+Thread.sleep(1000) // Simulate background work
+// Update UI using Handler
+handler.post {
+textView.text = "Count: $i"
+}
+}
+}.start()
+}
+}
+
+Step 3: open activity_main.xml (User Interface)
+●​ Open res/layout/activity_main.xml.
+●​ Replace with the following:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+android:padding="20dp">
+<TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Press button to start"
+android:textSize="20sp"
+android:padding="10dp"/>
+<Button
+android:id="@+id/button"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Start"/>
+</LinearLayout>
+
+Practical 11
+Programming Security and permissions
+
+Step I : Create a New Android Project
+●​
+●​
+●​
+●​
+
+Open Android Studio.
+Click "New Project" → Select "Empty Views Activity".
+Name the project, for example, "SecurityPractical".
+Choose Kotlin as the language.
+
+●​ Click Finish to create the project.
+
+Step II :Update Android Manifest.xml and add following lines
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission
+android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission
+android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+Step III: Modify MainActivity.kt
+●​ Open MainActivity.kt.
+●​ Replace the content with:
+
+package com.example.securitypractical
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+class MainActivity : AppCompatActivity() {
+private lateinit var textView: TextView
+private lateinit var button: Button
+private val permissions = arrayOf(
+Manifest.permission.CAMERA,
+Manifest.permission.ACCESS_FINE_LOCATION,
+Manifest.permission.READ_EXTERNAL_STORAGE
+)
+private val requestPermissionsLauncher =
+
+registerForActivityResult(ActivityResultContracts.RequestMultiplePer
+missions()) { permissions ->
+val cameraGranted =
+permissions[Manifest.permission.CAMERA] ?: false
+val locationGranted =
+permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false
+val storageGranted =
+permissions[Manifest.permission.READ_EXTERNAL_STORAGE] ?: false
+val status = """
+Camera Permission: ${if (cameraGranted) "Granted"
+else "Denied"}
+Location Permission: ${if (locationGranted)
+"Granted" else "Denied"}
+Storage Permission: ${if (storageGranted) "Granted"
+else "Denied"}
+""".trimIndent()
+textView.text = status
+}
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+setContentView(R.layout.activity_main)
+textView = findViewById(R.id.textView)
+button = findViewById(R.id.button)
+button.setOnClickListener {
+checkAndRequestPermissions()
+}
+}
+private fun checkAndRequestPermissions() {
+val permissionsToRequest = permissions.filter {
+ContextCompat.checkSelfPermission(this, it) !=
+PackageManager.PERMISSION_GRANTED
+}.toTypedArray()
+if (permissionsToRequest.isNotEmpty()) {
+
+requestPermissionsLauncher.launch(permissionsToRequest)
+} else {
+textView.text = "All Permissions Already Granted"
+}
+}
+}
+
+Step IV: open activity_main.xml (User Interface)
+●​ Open res/layout/activity_main.xml.
+●​ Replace with the following:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+android:padding="20dp">
+<TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Press the button to request permissions"
+android:textSize="18sp"
+android:padding="10dp"/>
+<Button
+android:id="@+id/button"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Request Permissions"/>
+</LinearLayout>
+
+
