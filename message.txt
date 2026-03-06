@@ -1,0 +1,269 @@
+package com.example.radiogroupdemo
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.*
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+        val submitBtn = findViewById<Button>(R.id.submitBtn)
+        val resultText = findViewById<TextView>(R.id.resultText)
+
+        submitBtn.setOnClickListener {
+
+            val selectedId = radioGroup.checkedRadioButtonId
+            val radioButton = findViewById<RadioButton>(selectedId)
+
+            resultText.text = "Selected Gender: " + radioButton.text
+        }
+    }
+}
+
+
+
+----
+
+package com.example.backbuttonalert
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onBackPressed() {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Exit App")
+        builder.setMessage("Do you want to exit?")
+
+        builder.setPositiveButton("Yes") { dialog, which ->
+            finish()
+        }
+
+        builder.setNegativeButton("No") { dialog, which ->
+            dialog.dismiss()
+        }
+
+        builder.show()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}
+
+
+
+------
+
+
+package com.example.imagechange
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+
+class MainActivity : AppCompatActivity() {
+
+    var flag = true
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val imageView = findViewById<ImageView>(R.id.imageView)
+        val button = findViewById<Button>(R.id.changeBtn)
+
+        button.setOnClickListener {
+
+            if (flag) {
+                imageView.setImageResource(R.drawable.img2)
+                flag = false
+            } else {
+                imageView.setImageResource(R.drawable.img1)
+                flag = true
+            }
+
+        }
+    }
+}
+
+
+----
+
+package com.example.airplanemode
+
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.widget.Toast
+
+class AirplaneReceiver : BroadcastReceiver() {
+
+    override fun onReceive(context: Context, intent: Intent) {
+
+        val isAirplaneModeOn = intent.getBooleanExtra("state", false)
+
+        if (isAirplaneModeOn) {
+            Toast.makeText(context, "Airplane Mode ON", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(context, "Airplane Mode OFF", Toast.LENGTH_LONG).show()
+        }
+    }
+}
+
+
+-----
+
+strings.xml (Define String Resources)
+Open res → values → strings.xml
+Xml id="4gq1nh"
+Copy code
+<resources>
+    <string name="app_name">RegistrationApp</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+</resources>
+
+
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/full_name"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_password"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"/>
+
+</LinearLayout>
+
+
+-------
+
+package com.example.lifecycle
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("Lifecycle", "onCreate called")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("Lifecycle", "onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Lifecycle", "onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("Lifecycle", "onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("Lifecycle", "onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Lifecycle", "onDestroy called")
+    }
+}
+
+
+
+------
+
+package com.example.listviewdemo
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.ListView
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val listView = findViewById<ListView>(R.id.listView)
+
+        val names = arrayOf(
+            "Rahul",
+            "Aman",
+            "Priya",
+            "Neha",
+            "Rohan",
+            "Sneha"
+        )
+
+        val adapter = ArrayAdapter(this,
+            android.R.layout.simple_list_item_1,
+            names)
+
+        listView.adapter = adapter
+    }
+}
